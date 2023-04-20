@@ -1,16 +1,12 @@
 FROM alpine:latest
 RUN apk update
-RUN apk add --no-cache curl go gcc git bash musl-dev openssh openssl-dev ca-certificates  && update-ca-certificates
+RUN apk add --no-cache curl git make bash musl-dev go openssh openssl-dev ca-certificates python3 && update-ca-certificates
 
 # Golang install
-RUN curl -OL https://go.dev/dl/go1.20.3.src.tar.gz
-RUN tar -C /usr/local -xzf go1.20.3.src.tar.gz
-RUN cd /usr/local/go/src && ./make.bash
-RUN export GOPATH=$HOME/go
-RUN export GOROOT=/usr/local/go
-ENV PATH=$PATH:/usr/local/go/bin
-RUN rm go1.20.3.src.tar.gz
-RUN apk del go
+ENV GOROOT /usr/lib/go
+ENV GOPATH /go
+ENV PATH /go/bin:$PATH
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
 RUN go version
 
 # NPM + nodejs
