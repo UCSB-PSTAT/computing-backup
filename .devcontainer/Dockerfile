@@ -6,6 +6,8 @@ RUN apk add --no-cache curl go gcc git bash musl-dev openssh openssl-dev ca-cert
 RUN curl -OL https://go.dev/dl/go1.20.3.src.tar.gz
 RUN tar -C /usr/local -xzf go1.20.3.src.tar.gz
 RUN cd /usr/local/go/src && ./make.bash
+RUN export GOPATH=$HOME/go
+RUN export GOROOT=/usr/local/go
 ENV PATH=$PATH:/usr/local/go/bin
 RUN rm go1.20.3.src.tar.gz
 RUN apk del go
@@ -16,4 +18,3 @@ RUN apk add --update --no-cache nodejs npm
 
 # claat
 RUN go install github.com/googlecodelabs/tools/claat@latest
-
