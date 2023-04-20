@@ -1,6 +1,6 @@
 FROM alpine:latest
 RUN apk update
-RUN apk add curl go gcc git bash musl-dev openssl-dev ca-certificates && update-ca-certificates
+RUN apk add --no-cache curl go gcc git bash musl-dev openssh openssl-dev ca-certificates  && update-ca-certificates
 
 # Golang install
 RUN curl -OL https://go.dev/dl/go1.20.3.src.tar.gz
@@ -12,7 +12,7 @@ RUN apk del go
 RUN go version
 
 # NPM + nodejs
-RUN apk add --update nodejs npm
+RUN apk add --update --no-cache nodejs npm
 
 # claat
 RUN go install github.com/googlecodelabs/tools/claat@latest

@@ -3,5 +3,10 @@
 {
 	"name": "pstat-wiki",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": { "dockerfile": "Dockerfile" }
+	"build": { 
+		"dockerfile": "Dockerfile",
+		"args": {
+			"-t": "pstat-wiki:dev"
+		}
+	}
 }
