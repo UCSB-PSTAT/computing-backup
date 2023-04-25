@@ -1,6 +1,6 @@
 FROM alpine:latest
 RUN apk update
-RUN apk add --no-cache curl git make bash musl-dev go openssh openssl-dev ca-certificates python3 && update-ca-certificates
+RUN apk add --no-cache curl git make bash musl-dev go openssh openssl-dev ca-certificates && update-ca-certificates
 
 # Golang install
 ENV GOROOT /usr/lib/go
