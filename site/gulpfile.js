@@ -373,10 +373,10 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
-gulp.task('deploy', gulp.series('dist', function () {
+gulp.task('deploy', function () {
   return gulp.src("./site/**/*")
     .pipe(deploy())
-}));
+});
 
 //
 // Helpers
