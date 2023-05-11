@@ -357,6 +357,12 @@ gulp.task('serve:dist', gulp.series('dist', () => {
     .pipe(webserver(opts.webserver()));
 }));
 
+// deploys to GitHub pages branch from dist
+gulp.task('deploy', gulp.series('dist', () => {
+  return gulp.src('dist')
+    .pipe(deploy())
+}));
+
 //
 // Codelabs
 //
@@ -373,10 +379,6 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
-gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
-    .pipe(deploy())
-});
 
 //
 // Helpers
