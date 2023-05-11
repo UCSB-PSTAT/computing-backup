@@ -2,6 +2,7 @@
 
 // Gulp
 const gulp = require('gulp');
+var deploy = require('gulp-gh-pages')
 
 // Gulp plugins
 const babel = require('gulp-babel');
