@@ -2,7 +2,7 @@
 
 // Gulp
 const gulp = require('gulp');
-var deploy = require('gulp-gh-pages')
+const deploy = require('gulp-gh-pages')
 
 // Gulp plugins
 const babel = require('gulp-babel');
@@ -373,10 +373,10 @@ gulp.task('codelabs:export', (callback) => {
   }
 });
 
-gulp.task('deploy', ['dist'], function () {
+gulp.task('deploy', gulp.series('dist', function () {
   return gulp.src("./site/**/*")
     .pipe(deploy())
-});
+}));
 
 //
 // Helpers
