@@ -374,7 +374,7 @@ gulp.task('codelabs:export', (callback) => {
 });
 
 gulp.task('deploy', function () {
-  return gulp.src("./site/**/*")
+  return gulp.src("./dist/**/*")
     .pipe(deploy())
 });
 
