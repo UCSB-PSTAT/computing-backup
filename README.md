@@ -26,7 +26,7 @@ chmod u+x claat-linux-amd64
 Following code extracts Google docs file ID from table above and runs the `claat` tool for each match.
 
 ```bash
-grep 'docs.google.com' wiki_pages.md \
+grep '-https://docs.google.com' README.md \
     | grep 'document' \
     | cut -d'|' -f2 \
     | cut -d'/' -f6 \
@@ -34,7 +34,7 @@ grep 'docs.google.com' wiki_pages.md \
     | xargs -i ./claat-linux-amd64 export -o docs {}
 ```
 
-- `grep 'docs.google.com' wiki_pages.md`: extract all lines with `docs.google.com`.
+- `grep '-https://docs.google.com' README.md`: extract all lines with `-https://docs.google.com`. (**REMOVE** the '-', this is a fix to avoid grabbing the instructions being talked about here)
 - `grep 'document'`: to exclude lines like the command in previous line, also search for `document` in the same line.
 - `cut -d'|' -f2`: split at `|` to separate markdown table cells
 - `cut -d'/' -f6`: split at `/` to extract the file IDs
