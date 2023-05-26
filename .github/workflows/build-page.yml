@@ -19,7 +19,7 @@ jobs:
         
     - name: build codelabs pages
       run: |
-        grep 'docs.google.com' wiki_pages.md
+        grep 'docs.google.com' README.md
         grep 'document' \
         cut -d'|' -f2 \
         cut -d'/' -f6 \
