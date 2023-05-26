@@ -1,6 +1,6 @@
 # Documentation with Codelabs
 
-## List Tutorials
+## Tutorial List
 
 | Google Docs URL | Page Description |
 | --------------- | ---------------- |
