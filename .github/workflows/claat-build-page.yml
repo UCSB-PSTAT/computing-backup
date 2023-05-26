@@ -19,9 +19,9 @@ jobs:
         
     - name: build codelabs pages
       run: |
-        grep 'https://docs.google.com' README.md
-        grep 'document' \
-        cut -d'|' -f2 \
-        cut -d'/' -f6 \
-        sed 's/ *$//' \
+        grep 'https://docs.google.com' README.md |
+        grep 'document' |
+        cut -d'|' -f2 |
+        cut -d'/' -f6 |
+        sed 's/ *$//' |
         xargs -i ./claat-linux-amd64 export -o docs {}
